@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Python</title>
+</head>
+<body>
+    <h1>My Python</h1>
+    <p>Welcome to my Python blog!</p>
+    <p>Here you will find all the latest news and updates about Python.</p>
+    <p>Stay tuned!</p>
+
+    <ul>
+        {% for post in posts %}
+            <li>
+                <a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a> by {{ post.author }}
+            </li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>
