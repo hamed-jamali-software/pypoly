@@ -1,17 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Register</title>
-</head>
-<body>
-    <h1>Register</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Register">
-    </form>
-    <a href="{% url 'home' %}">Back to home</a>
+{% extends 'base.html' %}
+{% block content %}
 
-</body>
-</html>
+<form method='POST' style='text-align: left; margin: 0 auto; width: 600px;'>{% csrf_token %}
+    {{form.as_p}}
+    <input class='btn btn-secondary' type='submit' name='Submit'/>
+</form>
+
+{% endblock %}

@@ -1,22 +1,80 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>My Python</title>
-</head>
-<body>
-    <h1>My Python</h1>
-    <p>Welcome to my Python blog!</p>
-    <p>Here you will find all the latest news and updates about Python.</p>
-    <p>Stay tuned!</p>
+{% extends 'main.html' %}
+{% load static %}
+{% block main_side %}
+              {% if post_list %}
+                {% for post in post_list %}
+                  <article class="entry">
 
-    <ul>
-        {% for post in posts %}
-            <li>
-                <a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a> by {{ post.author }}
-            </li>
-        {% endfor %}
-    </ul>
+                    <div class="entry-img">
+                      <img src="{{ post.photo.url }}" alt="" class="img-fluid">
+                    </div>
 
-</body>
-</html>
+                    <h2 class="entry-title">
+                      <a href="{% url 'post_detail' post.pk  %}">{{ post.title }}</a>
+                    </h2>
+
+                    <div class="entry-meta">
+                      <ul>
+                        <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-single.html">{{ post.author }}</a></li>
+                        <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01">{{ post.date }}</time></a></li>
+                        <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-single.html">12 Comments</a></li>
+                      </ul>
+                    </div>
+
+                    <div class="entry-content">
+                      <p>
+                        {{ post.excerpt }}
+                      </p>
+                      <div class="read-more">
+                        <a href="{% url 'post_detail' post.pk  %}">Read More</a>
+                      </div>
+                    </div>
+
+                  </article><!-- End blog entry -->
+                {% endfor %}
+
+                {% if post_list.has_other_pages %}
+                  <div class="blog-pagination">
+                    <ul class="justify-content-center">
+
+                      {% if post_list.has_previous %}
+                        <li class="page-item">
+                          <a href="?page={{ post_list.previous_page_number }}">&laquo</a>
+                        </li>
+                      {% else %}
+                        <li class="page-item disabled">
+                          <a class="page-link">&laquo</a>
+                        </li>
+                      {% endif %}
+
+                      {% for i in post_list.paginator.page_range %}
+                        {% if post_list.number == i %}
+                          <li class="page_item active">
+                            <a class="page-link">{{ i }}</a>
+                          </li>
+                        {% else %}
+                          <li class="page-item">
+                            <a href="?page={{i}}" class="page-link">{{ i }}</a>
+                          </li>
+                        {% endif %}
+                      {% endfor %}
+
+                      {% if post_list.has_next %}
+                        <li class="page-item">
+                          <a href="?page={{ post_list.next_page_number }}">&raquo</a>
+                        </li>
+                      {% else %}
+                        <li class="page-item disabled">
+                          <a class="page-link">&raquo</a>
+                        </li>
+                      {% endif %}
+
+                    </ul>
+                  </div>
+                {% endif %}
+
+              {% else %}
+                <h2>No post is available!</h2>
+              {% endif %}
+
+ {% endblock main_side %}
