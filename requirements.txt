@@ -1,39 +1,54 @@
+## Core Dependencies
 Django
+python-dotenv
+pytz
+
+
+## blog dependencies
+readtime
+
+
+## webcrawler dependencies
 requests
 beautifulsoup4
+
+
+## Security dependencies
+#psycopg
+
+## Design dependencies
 django-bootstrap5
+Pillow
 
-# Weblate https://docs.weblate.org/en/latest/admin/install.html translation
-# django-filter https://django-filter.readthedocs.io/en/stable/guide/install.html filter
-# django-environ https://django-environ.readthedocs.io/en/latest/ environ
-# django-appconf https://pypi.org/project/django-appconf/ appconf
+## cheditor dependencies (Cheditor)
+django-ckeditor
+django-ckeditor-5
 
-# django-phonenumber-field	https://pypi.org/project/django-phonenumber-field/ phone number
-# django-allauth https://docs.allauth.org/en/latest/installation/quickstart.html login in with social media
-# social-auth-app-django	https://pypi.org/project/social-auth-app-django/ login in with social media
+## User authentication dependencies
 
-# django-mptt	https://django-mptt.readthedocs.io/en/latest/ tree structure
-# django-formtools	 https://django-formtools.readthedocs.io/en/latest/ form tools
 
-# django-model-utils https://django-model-utils.readthedocs.io/en/latest/
-# Django Debug Toolbar https://django-debug-toolbar.readthedocs.io/en/latest/installation.html Debug Toolbar
-# django-silk https://github.com/jazzband/django-silk Silk intercepts and stores HTTP requests and database queries
-# django-ckeditor https://django-ckeditor.readthedocs.io/en/latest/#installation ckeditor content
-# django-compressor https://pypi.org/project/django-compressor/ compress static files (JS, CSS)
-# django-hijack https://pypi.org/project/django-hijack/ hijack user
-# django-modeltranslation https://pypi.org/project/django-modeltranslation/ translate models
-# django-simple-history https://django-simple-history.readthedocs.io/en/latest/ history of models
-# django-haystack https://pypi.org/project/django-haystack/ search
-# django-import-export https://pypi.org/project/django-import-export/ import/export data
+## optimizely dependencies
+psutil
+
+
+## Production dependencies
+django-csp
+whitenoise
 
 
 
+## Dev dependencies
+#coverage
+#django-coverage-plugin
 
-# django-baton https://pypi.org/project/django-baton/ admin panel
-# django-admin-sortable2 https://pypi.org/project/django-admin-sortable2/ sortable admin
-# django-jazzmin https://pypi.org/project/django-jazzmin/ admin panel
-# django-admin-interface https://pypi.org/project/django-admin-interface/ admin panel
-# Django Grappelli https://pypi.org/project/django-grappelli/ grid-based alternative/extension
-# django-admin-charts https://pypi.org/project/django-admin-charts/ charts in admin panel
 
- 
+## GPT Bot dependencies (Distances From Embeddings)
+#matplotlib==3.7.2
+#numpy==1.26.4
+#openai==0.27.8
+#pandas==2.1.3
+#plotly==5.21.0
+#scikit-learn==1.4.2
+#scipy==1.11.1
+#seaborn==0.11.2
+#nltk

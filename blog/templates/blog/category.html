@@ -1,0 +1,13 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% block head %}
+<meta property="og:type" content="article:section" />
+{% endblock head %}
+
+{% block content %}
+<section id="category-blog-posts">
+    <h1 class="category-title">{{ category.name }}</h1>
+    <p class="category-description">{{ category.description }}</p>
+    {% include "blog/parts/posts.html" %}
+</section>
+{% endblock content %}
